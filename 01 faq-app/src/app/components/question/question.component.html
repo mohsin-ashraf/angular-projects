@@ -1,0 +1,15 @@
+<div class="card my-2">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-8">
+        <strong>Question: </strong>{{question.text}}
+      </div>
+      <div class="col-md-4">
+        <a class="show link" (click)="question.hide = !question.hide">Show</a> | <a (click)="removeQuestion(question)" class="remove link">Remove</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-body" *ngIf="!question.hide">
+    <strong>Answer: </strong> {{question.answer}}
+  </div>
+</div>

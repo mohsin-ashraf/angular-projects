@@ -1,0 +1,22 @@
+<div class="card mt-5">
+  <div class="card-header text-center">Add New Question</div>
+  <div class="card-body">
+    <form #f="ngForm" (submit)="addQuestion(f); f.reset()">
+      <div class="form-group">
+        <label for="q-text">Question</label>
+        <input type="text" id="q-text" #questionText="ngModel" required placeholder="Question..." [(ngModel)]="text" name="text"
+          class="form-control">
+      </div>
+      <div class="alert alert-danger small" *ngIf="questionText.errors?.required && questionText.touched">Question is required.</div>
+
+      <div class="form-group">
+        <label for="answer">Answer</label>
+        <input type="text" id="answer" placeholder="Answer..." #answerText="ngModel" required [(ngModel)]="answer" name="answer"
+          class="form-control">
+      </div>
+      <div class="alert alert-danger small" *ngIf="answerText.errors?.required && answerText.touched">Answer is required</div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
