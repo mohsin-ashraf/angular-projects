@@ -1,0 +1,39 @@
+<h2 class="page-header text-center mt-5">
+  Register Yourself here
+</h2>
+
+<form (submit)="onRegisterSubmit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" [(ngModel)]="name" required #fname="ngModel" name="name" class="form-control">
+  </div>
+  <div class="alert alert-danger" *ngIf="fname.errors?.required && fname.touched">
+    Please enter the name
+  </div>
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" id="username" required [(ngModel)]="username" #funame="ngModel" name="username" class="form-control">
+  </div>
+  <div class="alert alert-danger" *ngIf="funame.errors?.required && funame.touched">
+    Please enter the username
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" id="email" [(ngModel)]="email" required #femail="ngModel" name="email" class="form-control">
+  </div>
+  <div class="alert alert-danger" *ngIf="femail.errors?.required && femail.touched">
+    Please enter the email
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" [(ngModel)]="password" required #fpassword="ngModel" name="password" class="form-control">
+  </div>
+  <div class="alert alert-danger" *ngIf="fpassword.errors?.required && fpassword.touched">
+    Please enter the password
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>
